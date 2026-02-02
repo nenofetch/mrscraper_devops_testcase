@@ -1,4 +1,4 @@
-FROM node:lts-alpine.3.23
+FROM node:lts-alpine3.23
 WORKDIR /app
 COPY app/ .
 EXPOSE 3000
