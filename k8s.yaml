@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mrscrapertest
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mrscrapertest
+  template:
+    metadata:
+      labels:
+        app: mrscrapertest
+    spec:
+      containers:
+      - name: mrscrapertest
+        image: mrscraperacr.azurecr.io/mrscraperapp:IMAGE_TAG
+        ports:
+        - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mrscrapertest-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: mrscrapertest
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 3000
