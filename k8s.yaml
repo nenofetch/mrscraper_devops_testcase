@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: mrscrapertest
-        image: mrscraperacr.azurecr.io/mrscraperapp:IMAGE_TAG
+        image: mrscrapercr.azurecr.io/mrscraperapp:IMAGE_TAG
         ports:
         - containerPort: 3000
 ---
